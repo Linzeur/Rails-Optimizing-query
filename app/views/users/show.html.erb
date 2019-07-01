@@ -1,0 +1,36 @@
+<p>
+  Name:
+  <%= fullname(@user_decorator) %>
+</p>
+
+<p>
+  Email:
+  <%= @user_decorator.define_email %>
+</p>
+
+<p>
+  Birthday:
+  <%= @user_decorator.birthday_format %>
+</p>
+
+<p>
+  Followers:
+  <%= users_list(@user_decorator.followers) %>
+</p>
+
+<p>
+  Following:
+  <%= users_list(@user_decorator.following) %>
+</p>
+
+<p>
+  Posts
+  <dl>
+    <% @user_decorator.posts.each do |post| %>
+      <dt>Description:</dt>
+      <dd><%= post.description %></dd>
+      <dt>Likes:</dt>
+      <dd><%= post.likes.count%></dd>
+    <% end %>
+  </dl>
+</p>
